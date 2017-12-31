@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70EC68A7-674C-4071-A1E9-285FA314E601}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XJob.QuartzNet</RootNamespace>
+    <AssemblyName>XJob.QuartzNet</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>QuartzService.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C5\arrays\ArrayList.cs" />
+    <Compile Include="C5\arrays\CircularQueue.cs" />
+    <Compile Include="C5\arrays\HashedArrayList.cs" />
+    <Compile Include="C5\arrays\SortedArray.cs" />
+    <Compile Include="C5\Collections.cs" />
+    <Compile Include="C5\comparers\ComparerFactory.cs" />
+    <Compile Include="C5\comparers\EqualityComparer.cs" />
+    <Compile Include="C5\comparers\InternalComparer.cs" />
+    <Compile Include="C5\comparers\InternalEqualityComparer.cs" />
+    <Compile Include="C5\Debug.cs" />
+    <Compile Include="C5\Dictionaries.cs" />
+    <Compile Include="C5\EnumerableBase.cs" />
+    <Compile Include="C5\Enums.cs" />
+    <Compile Include="C5\Events.cs" />
+    <Compile Include="C5\Exceptions.cs" />
+    <Compile Include="C5\Formatting.cs" />
+    <Compile Include="C5\Hashers.cs" />
+    <Compile Include="C5\hashing\HashBag.cs" />
+    <Compile Include="C5\hashing\HashDictionary.cs" />
+    <Compile Include="C5\hashing\HashTable.cs" />
+    <Compile Include="C5\heaps\IntervalHeap.cs" />
+    <Compile Include="C5\Interfaces.cs" />
+    <Compile Include="C5\IReadOnlyCollection.cs" />
+    <Compile Include="C5\IReadOnlyList.cs" />
+    <Compile Include="C5\linkedlists\HashedLinkedList.cs" />
+    <Compile Include="C5\linkedlists\LinkedList.cs" />
+    <Compile Include="C5\Logger.cs" />
+    <Compile Include="C5\MappedEnumerators.cs" />
+    <Compile Include="C5\MemorySafeEnumerator.cs" />
+    <Compile Include="C5\PortableExtensions.cs" />
+    <Compile Include="C5\Random.cs" />
+    <Compile Include="C5\Records.cs" />
+    <Compile Include="C5\SerializableAttribute.cs" />
+    <Compile Include="C5\Sorting.cs" />
+    <Compile Include="C5\trees\RedBlackTreeBag.cs" />
+    <Compile Include="C5\trees\RedBlackTreeDictionary.cs" />
+    <Compile Include="C5\trees\RedBlackTreeSet.cs" />
+    <Compile Include="C5\ViewSupport.cs" />
+    <Compile Include="C5\WrappedArray.cs" />
+    <Compile Include="C5\Wrappers.cs" />
+    <Compile Include="Common.Logging\CoverageExcludeAttribute.cs" />
+    <Compile Include="Common.Logging\Logging\ConfigurationException.cs" />
+    <Compile Include="Common.Logging\Logging\ConfigurationSectionHandler.cs" />
+    <Compile Include="Common.Logging\Logging\Configuration\ArgUtils.cs" />
+    <Compile Include="Common.Logging\Logging\Configuration\DefaultConfigurationReader.cs" />
+    <Compile Include="Common.Logging\Logging\Configuration\LogSetting.cs" />
+    <Compile Include="Common.Logging\Logging\Configuration\NamespaceDoc.cs" />
+    <Compile Include="Common.Logging\Logging\Factory\AbstractCachingLoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\Factory\AbstractLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Factory\NamespaceDoc.cs" />
+    <Compile Include="Common.Logging\Logging\FormatMessageHandler.cs" />
+    <Compile Include="Common.Logging\Logging\IConfigurationReader.cs" />
+    <Compile Include="Common.Logging\Logging\ILog.cs" />
+    <Compile Include="Common.Logging\Logging\ILoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\LogLevel.cs" />
+    <Compile Include="Common.Logging\Logging\LogManager.cs" />
+    <Compile Include="Common.Logging\Logging\NamespaceDoc.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\AbstractSimpleLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\AbstractSimpleLoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\CapturingLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\CapturingLoggerEvent.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\CapturingLoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\CommonLoggingTraceListener.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\ConsoleOutLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\ConsoleOutLoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\NamespaceDoc.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\NoOpLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\NoOpLoggerFactoryAdapter.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\TraceLogger.cs" />
+    <Compile Include="Common.Logging\Logging\Simple\TraceLoggerFactoryAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quartz\CalendarIntervalScheduleBuilder.cs" />
+    <Compile Include="Quartz\Collection\HashSet.cs" />
+    <Compile Include="Quartz\Collection\ISet.cs" />
+    <Compile Include="Quartz\Collection\ISortedSet.cs" />
+    <Compile Include="Quartz\Collection\ReadOnlySet.cs" />
+    <Compile Include="Quartz\Collection\TreeSet.cs" />
+    <Compile Include="Quartz\Core\IJobRunShellFactory.cs" />
+    <Compile Include="Quartz\Core\JobRunShell.cs" />
+    <Compile Include="Quartz\Core\ListenerManagerImpl.cs" />
+    <Compile Include="Quartz\Core\QuartzScheduler.cs" />
+    <Compile Include="Quartz\Core\QuartzSchedulerResources.cs" />
+    <Compile Include="Quartz\Core\QuartzSchedulerThread.cs" />
+    <Compile Include="Quartz\Core\SchedulerSignalerImpl.cs" />
+    <Compile Include="Quartz\CronExpression.cs" />
+    <Compile Include="Quartz\CronScheduleBuilder.cs" />
+    <Compile Include="Quartz\DailyTimeIntervalScheduleBuilder.cs" />
+    <Compile Include="Quartz\DateBuilder.cs" />
+    <Compile Include="Quartz\DisallowConcurrentExecutionAttribute.cs" />
+    <Compile Include="Quartz\ICalendar.cs" />
+    <Compile Include="Quartz\ICalendarIntervalTrigger.cs" />
+    <Compile Include="Quartz\ICronTrigger.cs" />
+    <Compile Include="Quartz\IDailyTimeIntervalTrigger.cs" />
+    <Compile Include="Quartz\IInterruptableJob.cs" />
+    <Compile Include="Quartz\IJob.cs" />
+    <Compile Include="Quartz\IJobDetail.cs" />
+    <Compile Include="Quartz\IJobExecutionContext.cs" />
+    <Compile Include="Quartz\IJobListener.cs" />
+    <Compile Include="Quartz\IListenerManager.cs" />
+    <Compile Include="Quartz\IMatcher.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\AdoConstants.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\AdoJobStoreUtil.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\AdoUtil.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\CalendarIntervalTriggerPersistenceDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\ConfigurationBasedDbMetadataFactory.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\DbMetadata.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\DbMetadataFactory.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\DbProvider.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\EmbeddedAssemblyResourceDbMetadataFactory.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\Common\IDbProvider.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\ConnectionAndTransactionHolder.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\CronTriggerPersistenceDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\DailyTimeIntervalTriggerPersistenceDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\DBSemaphore.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\DelegateInitializationArgs.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\FirebirdDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\FiredTriggerRecord.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\IDbAccessor.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\IDriverDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\InvalidConfigurationException.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\ISemaphore.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\ITablePrefixAware.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\ITriggerPersistenceDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\JobStoreCMT.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\JobStoreSupport.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\JobStoreTX.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\LockException.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\MySQLDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\NoSuchDelegateException.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\OracleDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\PostgreSQLDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SchedulerStateRecord.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SimplePropertiesTriggerPersistenceDelegateSupport.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SimplePropertiesTriggerProperties.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SimpleSemaphore.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SimpleTriggerPersistenceDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SQLiteDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\SqlServerDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\StdAdoConstants.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\StdAdoDelegate.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\StdRowLockSemaphore.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\TriggerPropertyBundle.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\TriggerStatus.cs" />
+    <Compile Include="Quartz\Impl\AdoJobStore\UpdateRowLockSemaphore.cs" />
+    <Compile Include="Quartz\Impl\Calendar\AnnualCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\BaseCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\CronCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\DailyCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\HolidayCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\MonthlyCalendar.cs" />
+    <Compile Include="Quartz\Impl\Calendar\WeeklyCalendar.cs" />
+    <Compile Include="Quartz\Impl\DefaultThreadExecutor.cs" />
+    <Compile Include="Quartz\Impl\DirectSchedulerFactory.cs" />
+    <Compile Include="Quartz\Impl\JobDetailImpl.cs" />
+    <Compile Include="Quartz\Impl\JobExecutionContextImpl.cs" />
+    <Compile Include="Quartz\Impl\Matchers\AndMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\EverythingMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\GroupMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\KeyMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\NameMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\NotMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\OrMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\StringMatcher.cs" />
+    <Compile Include="Quartz\Impl\Matchers\StringOperator.cs" />
+    <Compile Include="Quartz\Impl\RemoteScheduler.cs" />
+    <Compile Include="Quartz\Impl\SchedulerDetailsSetter.cs" />
+    <Compile Include="Quartz\Impl\SchedulerRepository.cs" />
+    <Compile Include="Quartz\Impl\StdJobRunShellFactory.cs" />
+    <Compile Include="Quartz\Impl\StdScheduler.cs" />
+    <Compile Include="Quartz\Impl\StdSchedulerFactory.cs" />
+    <Compile Include="Quartz\Impl\Triggers\AbstractTrigger.cs" />
+    <Compile Include="Quartz\Impl\Triggers\CalendarIntervalTriggerImpl.cs" />
+    <Compile Include="Quartz\Impl\Triggers\CronTriggerImpl.cs" />
+    <Compile Include="Quartz\Impl\Triggers\DailyTimeIntervalTriggerImpl.cs" />
+    <Compile Include="Quartz\Impl\Triggers\SimpleTriggerImpl.cs" />
+    <Compile Include="Quartz\IntervalUnit.cs" />
+    <Compile Include="Quartz\IScheduleBuilder.cs" />
+    <Compile Include="Quartz\IScheduler.cs" />
+    <Compile Include="Quartz\ISchedulerFactory.cs" />
+    <Compile Include="Quartz\ISchedulerListener.cs" />
+    <Compile Include="Quartz\ISimpleTrigger.cs" />
+    <Compile Include="Quartz\IStatefulJob.cs" />
+    <Compile Include="Quartz\ITrigger.cs" />
+    <Compile Include="Quartz\ITriggerListener.cs" />
+    <Compile Include="Quartz\JobBuilder.cs" />
+    <Compile Include="Quartz\JobDataMap.cs" />
+    <Compile Include="Quartz\JobExecutionException.cs" />
+    <Compile Include="Quartz\JobKey.cs" />
+    <Compile Include="Quartz\JobPersistenceException.cs" />
+    <Compile Include="Quartz\Job\DirectoryScanJob.cs" />
+    <Compile Include="Quartz\Job\FileScanJob.cs" />
+    <Compile Include="Quartz\Job\IDirectoryScanListener.cs" />
+    <Compile Include="Quartz\Job\IFileScanListener.cs" />
+    <Compile Include="Quartz\Job\NativeJob.cs" />
+    <Compile Include="Quartz\Job\NoOpJob.cs" />
+    <Compile Include="Quartz\Job\SendMailJob.cs" />
+    <Compile Include="Quartz\Listener\BroadcastJobListener.cs" />
+    <Compile Include="Quartz\Listener\BroadcastSchedulerListener.cs" />
+    <Compile Include="Quartz\Listener\BroadcastTriggerListener.cs" />
+    <Compile Include="Quartz\Listener\JobChainingJobListener.cs" />
+    <Compile Include="Quartz\Listener\JobListenerSupport.cs" />
+    <Compile Include="Quartz\Listener\SchedulerListenerSupport.cs" />
+    <Compile Include="Quartz\Listener\TriggerListenerSupport.cs" />
+    <Compile Include="Quartz\MisfireInstruction.cs" />
+    <Compile Include="Quartz\ObjectAlreadyExistsException.cs" />
+    <Compile Include="Quartz\PersistJobDataAfterExecutionAttribute.cs" />
+    <Compile Include="Quartz\Plugin\History\LoggingJobHistoryPlugin.cs" />
+    <Compile Include="Quartz\Plugin\History\LoggingTriggerHistoryPlugin.cs" />
+    <Compile Include="Quartz\Plugin\Management\ShutdownHookPlugin.cs" />
+    <Compile Include="Quartz\Plugin\Xml\XMLSchedulingDataProcessorPlugin.cs" />
+    <Compile Include="Quartz\QuartzThread.cs" />
+    <Compile Include="Quartz\ScheduleBuilder.cs" />
+    <Compile Include="Quartz\SchedulerConfigException.cs" />
+    <Compile Include="Quartz\SchedulerConstants.cs" />
+    <Compile Include="Quartz\SchedulerContext.cs" />
+    <Compile Include="Quartz\SchedulerException.cs" />
+    <Compile Include="Quartz\SchedulerInstruction.cs" />
+    <Compile Include="Quartz\SchedulerMetaData.cs" />
+    <Compile Include="Quartz\SimpleScheduleBuilder.cs" />
+    <Compile Include="Quartz\Simpl\DefaultObjectSerializer.cs" />
+    <Compile Include="Quartz\Simpl\HostNameBasedIdGenerator.cs" />
+    <Compile Include="Quartz\Simpl\HostnameInstanceIdGenerator.cs" />
+    <Compile Include="Quartz\Simpl\IRemotableQuartzScheduler.cs" />
+    <Compile Include="Quartz\Simpl\PropertySettingJobFactory.cs" />
+    <Compile Include="Quartz\Simpl\RAMJobStore.cs" />
+    <Compile Include="Quartz\Simpl\RemotingSchedulerExporter.cs" />
+    <Compile Include="Quartz\Simpl\RemotingSchedulerProxyFactory.cs" />
+    <Compile Include="Quartz\Simpl\SimpleInstanceIdGenerator.cs" />
+    <Compile Include="Quartz\Simpl\SimpleJobFactory.cs" />
+    <Compile Include="Quartz\Simpl\SimpleThreadPool.cs" />
+    <Compile Include="Quartz\Simpl\SimpleTypeLoadHelper.cs" />
+    <Compile Include="Quartz\Simpl\SystemPropertyInstanceIdGenerator.cs" />
+    <Compile Include="Quartz\Simpl\ZeroSizeThreadPool.cs" />
+    <Compile Include="Quartz\SPI\IInstanceIdGenerator.cs" />
+    <Compile Include="Quartz\SPI\IJobFactory.cs" />
+    <Compile Include="Quartz\SPI\IJobStore.cs" />
+    <Compile Include="Quartz\SPI\IMutableTrigger.cs" />
+    <Compile Include="Quartz\SPI\IObjectSerializer.cs" />
+    <Compile Include="Quartz\SPI\IOperableTrigger.cs" />
+    <Compile Include="Quartz\SPI\IRemotableSchedulerProxyFactory.cs" />
+    <Compile Include="Quartz\SPI\ISchedulerExporter.cs" />
+    <Compile Include="Quartz\SPI\ISchedulerPlugin.cs" />
+    <Compile Include="Quartz\SPI\ISchedulerSignaler.cs" />
+    <Compile Include="Quartz\SPI\IThreadExecutor.cs" />
+    <Compile Include="Quartz\SPI\IThreadPool.cs" />
+    <Compile Include="Quartz\SPI\ITypeLoadHelper.cs" />
+    <Compile Include="Quartz\SPI\TriggerFiredBundle.cs" />
+    <Compile Include="Quartz\SPI\TriggerFiredResult.cs" />
+    <Compile Include="Quartz\SystemTime.cs" />
+    <Compile Include="Quartz\TimeOfDay.cs" />
+    <Compile Include="Quartz\TimeSpanParseRuleAttribute.cs" />
+    <Compile Include="Quartz\TriggerBuilder.cs" />
+    <Compile Include="Quartz\TriggerConstants.cs" />
+    <Compile Include="Quartz\TriggerKey.cs" />
+    <Compile Include="Quartz\TriggerState.cs" />
+    <Compile Include="Quartz\TriggerTimeComparator.cs" />
+    <Compile Include="Quartz\TriggerUtils.cs" />
+    <Compile Include="Quartz\UnableToInterruptJobException.cs" />
+    <Compile Include="Quartz\Util\CollectionExtensions.cs" />
+    <Compile Include="Quartz\Util\DataReaderExtensions.cs" />
+    <Compile Include="Quartz\Util\DBConnectionManager.cs" />
+    <Compile Include="Quartz\Util\DirtyFlagMap.cs" />
+    <Compile Include="Quartz\Util\FileUtil.cs" />
+    <Compile Include="Quartz\Util\IDbConnectionManager.cs" />
+    <Compile Include="Quartz\Util\Key.cs" />
+    <Compile Include="Quartz\Util\LogicalThreadContext.cs" />
+    <Compile Include="Quartz\Util\ObjectExtensions.cs" />
+    <Compile Include="Quartz\Util\ObjectUtils.cs" />
+    <Compile Include="Quartz\Util\PropertiesParser.cs" />
+    <Compile Include="Quartz\Util\QuartzEnvironment.cs" />
+    <Compile Include="Quartz\Util\StringExtensions.cs" />
+    <Compile Include="Quartz\Util\StringKeyDirtyFlagMap.cs" />
+    <Compile Include="Quartz\Util\TimeZoneUtil.cs" />
+    <Compile Include="Quartz\Xml\job_scheduling_data_2_0.cs">
+      <DependentUpon>job_scheduling_data_2_0.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Quartz\Xml\ValidationException.cs" />
+    <Compile Include="Quartz\Xml\XMLSchedulingDataProcessor.cs" />
+    <Compile Include="Topshelf\Caching\Cache.cs" />
+    <Compile Include="Topshelf\Caching\CacheItemCallback.cs" />
+    <Compile Include="Topshelf\Caching\ConcurrentCache.cs" />
+    <Compile Include="Topshelf\Caching\DictionaryCache.cs" />
+    <Compile Include="Topshelf\Caching\GenericTypeCache.cs" />
+    <Compile Include="Topshelf\Caching\KeySelector.cs" />
+    <Compile Include="Topshelf\Caching\MissingValueProvider.cs" />
+    <Compile Include="Topshelf\Caching\ReadCache.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\CommandBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\ControlServiceBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\DelegateServiceBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\EnvironmentBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\HelpBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\HostBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\InstallBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\RunBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\ServiceBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\StartBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\StopBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\TestBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\Builders\UninstallBuilder.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\AbstractParser.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ArgumentElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\CommandLine.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\CommandLineElementParser.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\DefinitionElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ExtensionForCommandLineElementParsers.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\IArgumentElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ICommandLineElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ICommandLineElementParser.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\IDefinitionElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ISwitchElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\ITokenElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\MonadParserExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\Parser.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\Result.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\StringCommandLineParser.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\SwitchElement.cs" />
+    <Compile Include="Topshelf\Configuration\CommandLineParser\TokenElement.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ConfigurationResult.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\Configurator.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ValidateConfigurationResult.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ValidateResult.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ValidateResultImpl.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ValidationResultDisposition.cs" />
+    <Compile Include="Topshelf\Configuration\Configurators\ValidationResultExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\Constants\KnownServiceNames.cs" />
+    <Compile Include="Topshelf\Configuration\Credentials.cs" />
+    <Compile Include="Topshelf\Configuration\DependencyExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\HelpHostConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\CommandConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\CommandLineConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\CommandLineDefinitionConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\CommandLineParserOptions.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\CommandLineSwitchConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\DependencyHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\EnvironmentBuilderFactory.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\HostBuilderConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\HostBuilderFactory.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\HostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\HostConfiguratorImpl.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\InstallHostConfiguratorAction.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\PrefixHelpTextHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\RunAsServiceAccountHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\RunAsUserHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\RunHostConfiguratorAction.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\ServiceBuilderFactory.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\ServiceRecoveryHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\StartConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\StartModeHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\SudoConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\SystemOnlyHelpHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\UninstallHostConfiguratorAction.cs" />
+    <Compile Include="Topshelf\Configuration\HostConfigurators\UnknownCommandLineOptionHostConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\InstallHostConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\Options\AutostartOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\CommandOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\DelayedOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\DisabledOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\DisplayNameOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\HelpOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\InstallOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\InstanceOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\InteractiveOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\LocalServiceOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\LocalSystemOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\ManualStartOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\NetworkServiceOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\Option.cs" />
+    <Compile Include="Topshelf\Configuration\Options\RunOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\ServiceAccountOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\ServiceDescriptionOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\ServiceNameOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\StartOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\StopOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\SudoOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\SystemOnlyHelpOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\UninstallOption.cs" />
+    <Compile Include="Topshelf\Configuration\Options\UnknownOption.cs" />
+    <Compile Include="Topshelf\Configuration\RunAsExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceConfigurators\ControlServiceConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceConfigurators\DelegateServiceConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceConfigurators\ServiceConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceConfigurators\ServiceConfiguratorBase.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceEventConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceRecoveryConfigurator.cs" />
+    <Compile Include="Topshelf\Configuration\ServiceRecoveryConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\StartModeExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\TestHostExtensions.cs" />
+    <Compile Include="Topshelf\Configuration\UninstallHostConfiguratorExtensions.cs" />
+    <Compile Include="Topshelf\Exceptions\HostConfigurationException.cs" />
+    <Compile Include="Topshelf\Exceptions\ServiceBuilderException.cs" />
+    <Compile Include="Topshelf\Exceptions\ServiceControlException.cs" />
+    <Compile Include="Topshelf\Exceptions\TopshelfException.cs" />
+    <Compile Include="Topshelf\Host.cs" />
+    <Compile Include="Topshelf\HostControl.cs" />
+    <Compile Include="Topshelf\HostFactory.cs" />
+    <Compile Include="Topshelf\HostStartContext.cs" />
+    <Compile Include="Topshelf\HostStartedContext.cs" />
+    <Compile Include="Topshelf\HostStopContext.cs" />
+    <Compile Include="Topshelf\HostStoppedContext.cs" />
+    <Compile Include="Topshelf\Hosts\CommandHost.cs" />
+    <Compile Include="Topshelf\Hosts\ConsoleRunHost.cs" />
+    <Compile Include="Topshelf\Hosts\HelpHost.cs" />
+    <Compile Include="Topshelf\Hosts\InstallHost.cs" />
+    <Compile Include="Topshelf\Hosts\StartHost.cs" />
+    <Compile Include="Topshelf\Hosts\StopHost.cs" />
+    <Compile Include="Topshelf\Hosts\TestHost.cs" />
+    <Compile Include="Topshelf\Hosts\UninstallHost.cs" />
+    <Compile Include="Topshelf\Logging\HostLogger.cs" />
+    <Compile Include="Topshelf\Logging\HostLoggerConfigurator.cs" />
+    <Compile Include="Topshelf\Logging\LoggingLevel.cs" />
+    <Compile Include="Topshelf\Logging\LogWriter.cs" />
+    <Compile Include="Topshelf\Logging\LogWriterFactory.cs" />
+    <Compile Include="Topshelf\Logging\LogWriterOutputProvider.cs" />
+    <Compile Include="Topshelf\Logging\TopshelfConsoleTraceListener.cs" />
+    <Compile Include="Topshelf\Logging\TraceHostLoggerConfigurator.cs" />
+    <Compile Include="Topshelf\Logging\TraceLogWriter.cs" />
+    <Compile Include="Topshelf\Logging\TraceLogWriterFactory.cs" />
+    <Compile Include="Topshelf\Logging\TypeExtensions.cs" />
+    <Compile Include="Topshelf\Logging\TypeNameFormatter.cs" />
+    <Compile Include="Topshelf\PowerEventArguments.cs" />
+    <Compile Include="Topshelf\PowerEventCode.cs" />
+    <Compile Include="Topshelf\Runtime\EventCallbackList.cs" />
+    <Compile Include="Topshelf\Runtime\HostEnvironment.cs" />
+    <Compile Include="Topshelf\Runtime\HostSettings.cs" />
+    <Compile Include="Topshelf\Runtime\HostStartMode.cs" />
+    <Compile Include="Topshelf\Runtime\InstallHostSettings.cs" />
+    <Compile Include="Topshelf\Runtime\ServiceEvents.cs" />
+    <Compile Include="Topshelf\Runtime\ServiceEventsImpl.cs" />
+    <Compile Include="Topshelf\Runtime\ServiceFactory.cs" />
+    <Compile Include="Topshelf\Runtime\ServiceHandle.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\HostInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Topshelf\Runtime\Windows\HostServiceInstaller.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\Kernel32.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\NativeMethods.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\RestartServiceRecoveryAction.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\RestartSystemRecoveryAction.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\RunProgramRecoveryAction.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\SafeTokenHandle.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\ServiceRecoveryAction.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\ServiceRecoveryOptions.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\WindowsHostEnvironment.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\WindowsHostEnvironmentBuilder.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\WindowsHostSettings.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\WindowsServiceHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Topshelf\Runtime\Windows\WindowsServiceRecoveryController.cs" />
+    <Compile Include="Topshelf\Runtime\Windows\WindowsUserAccessControl.cs" />
+    <Compile Include="Topshelf\ServiceControl.cs" />
+    <Compile Include="Topshelf\ServiceCustomCommand.cs" />
+    <Compile Include="Topshelf\ServicePowerEvent.cs" />
+    <Compile Include="Topshelf\ServiceSessionChange.cs" />
+    <Compile Include="Topshelf\ServiceShutdown.cs" />
+    <Compile Include="Topshelf\ServiceSuspend.cs" />
+    <Compile Include="Topshelf\SessionChangedArguments.cs" />
+    <Compile Include="Topshelf\SessionChangeReasonCode.cs" />
+    <Compile Include="Topshelf\TopshelfExitCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Quartz\Impl\AdoJobStore\Common\dbproviders.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Quartz\Xml\job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Quartz\quartz.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Topshelf\HelpText.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QuartzService.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
